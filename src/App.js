@@ -2,6 +2,8 @@ import './App.css';
 import Rock from './Rock.js';
 import Paper from './Paper.js';
 import Scissors from './Scissors.js';
+import { useState, useEffect } from 'react';
+import { rand } from 'elliptic';
 
 const choices = [
     {
@@ -22,17 +24,33 @@ const choices = [
 ];
 
 function App() {
+    const [wins, setWins] = useState(0);
+    const [losses, setLosses] = useState(0);
+    const [userChoice, setUserChoice] = useState(null);
+    const [computerChoice, setComputerChoice] = useState(null);
+
+    useEffect(() => {
+        const randomChoice =
+            choices[Math.floor(Math.random() * choices.length)];
+        setComputerChoice(randomChoice);
+    }, []);
+
+    function handleUserChoice(choice) {
+        const chosenChoice = choices.find(c => c.id === choice);
+        setUserChoice(chosenChoice);
+    }
+
     return (
         <div className='app'>
             <div className='info'>
                 <h2>Rock. Paper. Scissors</h2>
                 <div className='wins-losses'>
                     <div className='wins'>
-                        <span className='number'>0</span>
+                        <span className='number'>{wins}</span>
                         <span className='text'>Wins</span>
                     </div>
                     <div className='losses'>
-                        <span className='number'>0</span>
+                        <span className='number'>{losses}</span>
                         <span className='text'>Losses</span>
                     </div>
                 </div>
@@ -48,13 +66,22 @@ function App() {
 
                 {/* buttons for my choice */}
                 <div>
-                    <button className='rock'>
+                    <button
+                        className='rock'
+                        onClick={() => handleUserChoice(1)}
+                    >
                         <Rock />
                     </button>
-                    <button className='paper'>
+                    <button
+                        className='paper'
+                        onClick={() => handleUserChoice(2)}
+                    >
                         <Paper />
                     </button>
-                    <button className='scissors'>
+                    <button
+                        className='scissors'
+                        onClick={() => handleUserChoice(3)}
+                    >
                         <Scissors />
                     </button>
                 </div>
