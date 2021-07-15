@@ -1,2 +1,0 @@
-(this["webpackJsonprock-paper-scissors"]=this["webpackJsonprock-paper-scissors"]||[]).push([[0],{10:function(e,c,r){"use strict";r.r(c);var s=r(1),t=r.n(s),n=r(3),o=r.n(n),i=(r(8),r(0));var p=function(){return Object(i.jsx)("div",{children:Object(i.jsx)("h2",{children:"Hello"})})};o.a.render(Object(i.jsx)(t.a.StrictMode,{children:Object(i.jsx)(p,{})}),document.getElementById("root"))},8:function(e,c,r){}},[[10,1,2]]]);
-//# sourceMappingURL=main.8d1aee14.chunk.js.map
